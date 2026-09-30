@@ -7,7 +7,7 @@ struct Node {
     Node *prev;     // Pointer to the previous node
     Node *next;     // Pointer to the next node
 };
-
+ 
 // Global pointers to keep track of the list
 Node *head = NULL;  // Points to the first node
 Node *tail = NULL;  // Points to the last node

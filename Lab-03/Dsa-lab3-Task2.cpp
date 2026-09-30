@@ -31,7 +31,7 @@ void insert(int val) {
         tail = newNode;         // Update tail to the new node
     }
 }
-
+ 
 // Display the list from head to tail
 void display() {
     Node *temp = head;          // Start from the head
