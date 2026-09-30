@@ -2,12 +2,14 @@
 #include <iostream>
 using namespace std;
 
+// structure for linked list node
 struct Node {
     int data;
     Node* next;
 };
-Node* head = NULL;
+Node* head = NULL; // global head pointer
 
+// function to append new node at the end
 void insert(int value) {
     Node* newNode = new Node;
     newNode->data = value;
@@ -23,6 +25,8 @@ void insert(int value) {
         temp->next = newNode;
     }
 }
+
+// function to print the linked list
 void display() {
     Node* temp = head;
     while (temp != NULL) {
@@ -31,13 +35,16 @@ void display() {
     }
     cout << "NULL" << endl;
 }
+
+// function to search and count all occurrences of a value
 void findOccurrences(int value) {
     Node* temp = head;
-    int count = 0;
-    int pos = 1;
+    int count = 0; // tracks total occurrences
+    int pos = 1;   // tracks node position (1-based index)
 
     cout << "Searching for " << value << ":" << endl;
 
+    // traverse through entire list
     while (temp != NULL) {
         if (temp->data == value) {
             count++;
@@ -47,12 +54,15 @@ void findOccurrences(int value) {
         pos++;
     }
 
+    // print summary result
     if (count == 0)
         cout << "Not found" << endl;
     else
         cout << "Total times found: " << count << endl;
 }
+
 int main() {
+    // inserting values into the list (including duplicates)
     insert(10);
     insert(20);
     insert(30);
@@ -61,12 +71,16 @@ int main() {
     insert(20);
     insert(50);
 
+    // display initial list
     cout << "List: ";
     display();
     cout << endl;
 
+    // test search for an existing element with duplicates
     findOccurrences(20);
     cout << endl;
+
+    // test search for a non-existing element
     findOccurrences(99);
 
     return 0;
